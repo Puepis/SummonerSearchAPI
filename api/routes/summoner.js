@@ -9,6 +9,8 @@ const formatUnicorn = require('format-unicorn/safe');
 // Constants
 const constants = require('../constants/riot_constants');
 
+const axios = require('axios').default;
+
 require('dotenv').config();
 
 const express = require('express');
@@ -29,7 +31,7 @@ router.post('/id/by/name', async (req, res) => {
 
     console.log(url);
     try {
-        const idResponse = await fetch(url);
+        const idResponse = await axios.get(url);
         console.log(idResponse);
         res.send(idResponse);
     } catch (e) {
@@ -43,7 +45,7 @@ router.post('/ranked/by/id', async (req, res) => {
     const { region, id } = req.body;
 
     try {
-        const rankedResponse = await fetch(formatUnicorn(constants.URL['base'], {
+        const rankedResponse = await axios.get(formatUnicorn(constants.URL['base'], {
             region: region,
             url: formatUnicorn(constants.URL['league_by_summoner'], {
                 version: constants.API_VERSIONS['league'],
@@ -62,7 +64,7 @@ router.post('/mastery/by/id', async (req, res) => {
     const { region, id } = req.body;
 
     try {
-        const masteryScore = await fetch(formatUnicorn(constants.URL['base'], {
+        const masteryScore = await axios.get(formatUnicorn(constants.URL['base'], {
             region: region,
             url: formatUnicorn(constants.URL['mastery_score_by_summoner'], {
                 version: constants.API_VERSIONS['champion-mastery'],
