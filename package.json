@@ -1,18 +1,22 @@
 {
-  "name": "search_api",
-  "version": "1.0.0",
-  "description": "RESTful API server for SummonerSearch web app",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Philips Xu",
-  "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "format-unicorn": "^1.1.1",
-    "nodemon": "^2.0.2"
-  }
+    "name": "search_api",
+    "version": "1.0.0",
+    "description": "RESTful API server for SummonerSearch web app",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js"
+    },
+    "author": "Philips Xu",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "format-unicorn": "^1.1.1",
+        "nodemon": "^2.0.2"
+    },
+    "engines": {
+        "node": "12.15.0"
+    }
 }
