@@ -15,7 +15,7 @@ const express = require('express');
 const router = express.Router();
 
 // Summoner ID by name
-router.get('/id/by/name', async (req, res) => {
+router.post('/id/by/name', async (req, res) => {
     const { region, summonerName } = req.body;
 
     try {
@@ -35,7 +35,7 @@ router.get('/id/by/name', async (req, res) => {
 });
 
 // Ranked info by id
-router.get('/ranked/by/id', async (req, res) => {
+router.post('/ranked/by/id', async (req, res) => {
     const { region, id } = req.body;
 
     try {
@@ -54,7 +54,7 @@ router.get('/ranked/by/id', async (req, res) => {
 });
 
 // Mastery level by id
-router.get('/mastery/by/id', async (req, res) => {
+router.post('/mastery/by/id', async (req, res) => {
     const { region, id } = req.body;
 
     try {
