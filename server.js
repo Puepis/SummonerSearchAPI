@@ -23,5 +23,6 @@ app.get('/', (req, res) => {
     res.send("Hello World!");
 });
 
+// To deploy to heroku, use "git push heroku master"
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => console.log(`SummonerSearch server started on port ${PORT}`));
