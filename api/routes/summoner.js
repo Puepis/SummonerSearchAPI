@@ -16,13 +16,13 @@ const router = express.Router();
 
 // Summoner ID by name
 router.post('/id/by/name', async (req, res) => {
-    const { region, summonerName } = req.body;
+    const { region, name } = req.body;
 
     const url = formatUnicorn(constants.URL['base'], {
         region: region,
         url: formatUnicorn(constants.URL['summoner_by_name'], {
             version: constants.API_VERSIONS['summoner'],
-            summoner_name: summonerName,
+            summoner_name: name,
             api_key: process.env.RIOT_KEY
         })
     });
