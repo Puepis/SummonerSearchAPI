@@ -33,7 +33,8 @@ router.post('/id/by/name', async (req, res) => {
         console.log(idResponse);
         res.send(idResponse);
     } catch (e) {
-        res.status(401);
+        console.log(e);
+        res.status(401).send(e);
     }
 });
 
