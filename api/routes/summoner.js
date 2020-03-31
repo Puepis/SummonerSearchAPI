@@ -78,7 +78,7 @@ router.post('/mastery/by/id', async (req, res) => {
     try {
         const masteryScore = await axios.get(url);
         console.log(masteryScore.data);
-        res.send(masteryScore.data);
+        res.send({data: masteryScore.data});
     } catch (e) {
         console.log(e);
         res.status(401).send(e);
