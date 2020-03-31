@@ -18,15 +18,18 @@ const router = express.Router();
 router.post('/id/by/name', async (req, res) => {
     const { region, summonerName } = req.body;
 
+    const url = formatUnicorn(constants.URL['base'], {
+        region: region,
+        url: formatUnicorn(constants.URL['summoner_by_name'], {
+            version: constants.API_VERSIONS['summoner'],
+            summoner_name: summonerName,
+            api_key: process.env.RIOT_KEY
+        })
+    });
+
+    console.log(url);
     try {
-        const idResponse = await fetch(formatUnicorn(constants.URL['base'], {
-            region: region,
-            url: formatUnicorn(constants.URL['summoner_by_name'], {
-                version: constants.API_VERSIONS['summoner'],
-                summoner_name: summonerName,
-                api_key: process.env.RIOT_KEY
-            })
-        }));
+        const idResponse = await fetch(url);
         console.log(idResponse);
         res.send(idResponse);
     } catch (e) {
