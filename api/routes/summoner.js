@@ -65,15 +65,18 @@ router.post('/ranked/by/id', async (req, res) => {
 router.post('/mastery/by/id', async (req, res) => {
     const { region, id } = req.body;
 
+    const url = formatUnicorn(constants.URL['base'], {
+        region: region,
+        url: formatUnicorn(constants.URL['mastery_score_by_summoner'], {
+            version: constants.API_VERSIONS['champion-mastery'],
+            summoner_id: id,
+            api_key: process.env.RIOT_KEY
+        })
+    });
+
+    console.log(url);
     try {
-        const masteryScore = await axios.get(formatUnicorn(constants.URL['base'], {
-            region: region,
-            url: formatUnicorn(constants.URL['mastery_score_by_summoner'], {
-                version: constants.API_VERSIONS['champion-mastery'],
-                summoner_id: id,
-                api_key: process.env.RIOT_KEY
-            })
-        }));
+        const masteryScore = await axios.get(url);
         console.log(masteryScore.data);
         res.send(masteryScore.data);
     } catch (e) {
