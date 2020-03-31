@@ -9,6 +9,12 @@ const app = express()
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
+// CORS Proxy
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    next();
+});
+
 // Routes
 app.use('/summoner', require('./api/routes/summoner'));
 
