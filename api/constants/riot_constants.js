@@ -3,9 +3,9 @@
 
 exports.URL = {
     'base': 'https://{region}.api.riotgames.com/lol/{url}',
-    'summoner_by_name': 'summoner/v{version}/summoners/by-name/{summoner_name}{api_key}',
-    'league_by_summoner': 'league/v{version}/entries/by-summoner/{summoner_id}{api_key}',
-    'mastery_score_by_summoner': 'champion-mastery/v{version}/scores/by-summoner/{summoner_id}{api_key}',
+    'summoner_by_name': 'summoner/v{version}/summoners/by-name/{summoner_name}/?api_key={api_key}',
+    'league_by_summoner': 'league/v{version}/entries/by-summoner/{summoner_id}/?api_key={api_key}',
+    'mastery_score_by_summoner': 'champion-mastery/v{version}/scores/by-summoner/{summoner_id}/?api_key={api_key}',
     'profile_icon': "http://ddragon.leagueoflegends.com/cdn/{version}/img/profileicon/{profile_icon_id}.png",
     'champion_icon': "http://ddragon.leagueoflegends.com/cdn/{version}/img/champion/{champion_name}.png"
 }
