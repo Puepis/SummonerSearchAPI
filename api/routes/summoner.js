@@ -27,6 +27,7 @@ router.get('/id/by/name', async (req, res) => {
                 api_key: process.env.RIOT_KEY
             })
         }));
+        console.log(idResponse);
         res.send(idResponse);
     } catch (e) {
         res.status(401);
