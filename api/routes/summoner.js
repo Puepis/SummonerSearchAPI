@@ -29,10 +29,8 @@ router.post('/id/by/name', async (req, res) => {
         })
     });
 
-    console.log(url);
     try {
         const idResponse = await axios.get(url);
-        console.log(idResponse.data);
         res.send(idResponse.data);
     } catch (e) {
         console.log(e);
@@ -53,7 +51,6 @@ router.post('/ranked/by/id', async (req, res) => {
                 api_key: process.env.RIOT_KEY
             })
         }));
-        console.log(rankedResponse.data);
         res.send(rankedResponse.data);
     } catch (e) {
         console.log(e);
@@ -74,10 +71,8 @@ router.post('/mastery/by/id', async (req, res) => {
         })
     });
 
-    console.log(url);
     try {
         const masteryScore = await axios.get(url);
-        console.log(masteryScore.data);
         res.send({id: masteryScore.data});
     } catch (e) {
         console.log(e);
